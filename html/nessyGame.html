@@ -19,8 +19,11 @@ canvas {
 
 <script>
 
+var flappyBird;
+
 function startGame() {
 	gameCanvas.start();
+	flappyBird = new component(70, 70, "red", 100, 120);
 }
 
 //Create the canvas for the game
@@ -32,6 +35,17 @@ var gameCanvas = {
 		this.context = this.canvas.getContext("2d");
 		document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 	}
+}
+
+//Create the square for the game (aka the flappy bird)
+function component(width, height, color, x, y) {
+	this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;    
+    ctx = gameCanvas.context;
+    ctx.fillStyle = color;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
 }
 
 </script>
